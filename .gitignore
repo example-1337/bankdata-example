@@ -34,3 +34,4 @@ replay_pid*
 /shared/models/build
 /shared/testHelpers/build
 /shared/utils/build
+/kotlin-js-store/

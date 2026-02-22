@@ -7,7 +7,6 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         mavenCentral()
         gradlePluginPortal()
@@ -27,3 +26,4 @@ include("shared:utils")
 include("shared:models")
 include("shared:testHelpers")
 
+include("frontend")

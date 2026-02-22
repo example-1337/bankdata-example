@@ -48,8 +48,10 @@ kotlin-test-junit5 = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit
 [plugins]
 
 quarkus = { id = "io.quarkus", version.ref = "quarkus" }
+
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 
 jandex = { id = "org.kordamp.gradle.jandex", version.ref = "jandex" }
 
