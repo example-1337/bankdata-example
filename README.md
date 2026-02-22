@@ -2,25 +2,34 @@
 
 ## Parts
 
-The backend is in, backend
+The backend is in the folder backend
+The frontend is in the folder frontend
 External services (FX) is in external services
 Shared contains shard code, and a seperation of say domain logic (showcase)
 
-The bruno folder contains bruno requests
-
-
+The bruno folder contains bruno requests for the backend and external services
 
 ## dependencies
 
 ## Running server
 
-this will run a local dev server
+this will run a local dev server (backend)
 
 ```bash
 ./gradlew :backend:quarkusdev
 ```
 
-## Building docker image
+and should start at port 8080
+
+the frontend requires
+
+```bash
+./gradlew :frontend:jsBrowserDevelopmentRun
+```
+
+and will (if started after the backend) run on port 8081
+
+## Building docker image (backend)
 
 Will create a docker image with the jvm
 
@@ -28,7 +37,7 @@ Will create a docker image with the jvm
 ./gradlew :backend:buildDockerImage
 ```
 
-## Build graalvm native docker image
+## Build graalvm native docker image (backend)
 
 Will create a docker image based on a graalvm native image
 
