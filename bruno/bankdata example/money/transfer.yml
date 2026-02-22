@@ -1,0 +1,30 @@
+info:
+  name: transfer
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8080/money/transfer
+  body:
+    type: json
+    data: |-
+      {
+        "from": "{{accountId}}", 
+        "to": "{{accountId2}}",
+        "money": {"amount": "500"}
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: accountId
+      value: 00c253cd-d739-4d04-a5f2-e8aa1e9b78fd
+    - name: accountId2
+      value: bd7c9e54-365a-4ebe-b7e4-89e60a75104f
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

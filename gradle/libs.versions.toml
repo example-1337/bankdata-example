@@ -1,0 +1,81 @@
+[versions]
+
+# https://github.com/jetbrains/kotlin/releases
+kotlin = "2.3.0"
+
+# https://github.com/Kotlin/kotlinx.serialization
+kotlin-serializationx = "1.10.0"
+
+# https://github.com/Kotlin/kotlinx.coroutines
+kotlin-coroutines = "1.10.2"
+
+# https://github.com/quarkusio/quarkus/
+quarkus = "3.31.4"
+
+# https://github.com/pdvrieze/xmlutil
+pdvrieze-xmlutil = "1.0.0-rc2"
+
+# https://plugins.gradle.org/plugin/org.kordamp.gradle.jandex
+jandex = "2.3.0"
+
+[libraries]
+# Quarkus related
+quarkus-platform-bom = { group = "io.quarkus.platform", name = "quarkus-bom", version.ref = "quarkus" }
+
+quarkus-arc = { group = "io.quarkus", name = "quarkus-arc" }
+quarkus-rest = { group = "io.quarkus", name = "quarkus-rest" }
+quarkus-kotlin = { group = "io.quarkus", name = "quarkus-kotlin" }
+
+quarkus-rest-kotlin-serialization = { group = "io.quarkus", name = "quarkus-rest-kotlin-serialization" }
+quarkus-rest-client-kotlin-serialization = { group = "io.quarkus", name = "quarkus-rest-client-kotlin-serialization" }
+
+quarkus-junit5 = { group = "io.quarkus", name = "quarkus-junit5" }
+rest-assured = { group = "io.rest-assured", name = "rest-assured" }
+
+# kotlin related
+kotlin-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlin-serializationx" }
+kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlin-serializationx" }
+
+kotlin-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
+
+kotlin-serialization-xml-serialization = { group = "io.github.pdvrieze.xmlutil", name = "serialization", version.ref = "pdvrieze-xmlutil" }
+
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+kotlin-test-junit5 = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5", version.ref = "kotlin" }
+
+
+[plugins]
+
+quarkus = { id = "io.quarkus", version.ref = "quarkus" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+jandex = { id = "org.kordamp.gradle.jandex", version.ref = "jandex" }
+
+[bundles]
+
+quarkus-kotlin = [
+    "quarkus-kotlin",
+    "quarkus-arc",
+    "quarkus-rest",
+    "quarkus-rest-kotlin-serialization",
+    "quarkus-rest-client-kotlin-serialization"
+]
+
+quarkus-test = [
+    "quarkus-junit5",
+    "rest-assured",
+    "kotlin-coroutines-test"
+]
+
+kotlin = [
+    "kotlin-serialization-core",
+    "kotlin-coroutines-core"
+]
+
+kotlin-test = [
+    "kotlin-test",
+    "kotlin-test-junit5",
+    "kotlin-coroutines-test",
+]

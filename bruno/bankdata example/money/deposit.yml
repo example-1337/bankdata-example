@@ -1,0 +1,23 @@
+info:
+  name: deposit
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: http://localhost:8080/money/deposit
+  body:
+    type: json
+    data: '{"to": "{{accountId}}","money": {"amount": "9000"}}'
+  auth: inherit
+
+runtime:
+  variables:
+    - name: accountId
+      value: 00c253cd-d739-4d04-a5f2-e8aa1e9b78fd
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
