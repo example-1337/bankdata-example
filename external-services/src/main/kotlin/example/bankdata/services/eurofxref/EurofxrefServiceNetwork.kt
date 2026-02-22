@@ -10,9 +10,7 @@ import jakarta.enterprise.context.*
 import nl.adaptivity.xmlutil.serialization.*
 import org.eclipse.microprofile.rest.client.inject.*
 
-@ApplicationScoped
 class EurofxrefServiceNetwork(
-    @param:RestClient
     private val api: EuroxrefApi
 ) : EurofxrefService {
     private val xmlSerializer: XML = XML.recommended_1_0 {
