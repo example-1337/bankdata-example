@@ -1,5 +1,3 @@
-import java.util.Locale
-
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
@@ -59,15 +57,10 @@ kotlin {
 tasks.register<Exec>("buildNativeAotDocker") {
     group = "build"
 
-    val isWindows: Boolean = System.getProperty("os.name").contains("win", ignoreCase = true)
-    val wrapper: String = if (isWindows) {
-        "gradlew.bat"
-    } else {
-        "./gradlew"
-    }
-    executable = wrapper
+    executable = getGradleWrapperByOs()
     args = listOf(
         "build",
+        "--rerun-tasks",
         "-Dquarkus.native.enabled=true",
         "-Dquarkus.package.jar.enabled=false",
         "-Dquarkus.container-image.build=true",
@@ -79,4 +72,32 @@ tasks.register<Exec>("buildNativeAotDocker") {
     isIgnoreExitValue = false
     standardOutput = System.out
     errorOutput = System.err
+}
+
+
+tasks.register<Exec>("buildDockerImage") {
+    group = "build"
+    outputs.upToDateWhen { false }
+
+
+    executable = getGradleWrapperByOs()
+    args = listOf(
+        "build",
+        "--rerun-tasks",
+        "-Dquarkus.container-image.build=true"
+    )
+
+    workingDir = project.rootDir
+
+    isIgnoreExitValue = false
+    standardOutput = System.out
+    errorOutput = System.err
+}
+
+fun getGradleWrapperByOs(): String {
+    val isWindows: Boolean = System.getProperty("os.name").contains("win", ignoreCase = true)
+    if (isWindows) {
+        return "gradlew.bat"
+    }
+    return "./gradlew"
 }
