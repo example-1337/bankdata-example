@@ -5,10 +5,7 @@ import example.bankdata.services.eurofxref.bll.*
 import example.bankdata.services.eurofxref.models.domain.currencies.*
 import example.bankdata.services.eurofxref.models.dto.*
 import example.bankdata.services.extensions.smallRye.*
-import io.smallrye.mutiny.*
-import jakarta.enterprise.context.*
 import nl.adaptivity.xmlutil.serialization.*
-import org.eclipse.microprofile.rest.client.inject.*
 
 class EurofxrefServiceNetwork(
     private val api: EuroxrefApi

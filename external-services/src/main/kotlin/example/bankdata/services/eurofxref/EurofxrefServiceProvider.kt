@@ -1,14 +1,11 @@
 package example.bankdata.services.eurofxref
 
-import example.bankdata.services.eurofxref.api.EuroxrefApi
-import example.bankdata.services.eurofxref.models.domain.currencies.*
-import jakarta.enterprise.inject.Default
-import jakarta.enterprise.inject.Produces
-import org.eclipse.microprofile.rest.client.inject.RestClient
+import example.bankdata.services.eurofxref.api.*
+import jakarta.enterprise.inject.*
+import org.eclipse.microprofile.rest.client.inject.*
 
 
-object EurofxrefServiceProvider {
-
+class EurofxrefServiceProvider {
     @Produces
     @Default
     fun defaultService(

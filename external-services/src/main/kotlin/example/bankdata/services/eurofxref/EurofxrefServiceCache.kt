@@ -3,9 +3,6 @@ package example.bankdata.services.eurofxref
 import example.bankdata.services.eurofxref.models.domain.currencies.*
 import example.bankdata.utils.cache.*
 import example.bankdata.utils.system.*
-import jakarta.annotation.*
-import jakarta.decorator.*
-import jakarta.inject.*
 import kotlin.time.Duration.Companion.days
 
 class EurofxrefServiceCache(

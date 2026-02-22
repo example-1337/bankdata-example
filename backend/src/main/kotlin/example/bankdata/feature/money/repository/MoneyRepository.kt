@@ -1,25 +1,26 @@
 package example.bankdata.feature.money.repository
 
 import example.bankdata.database.*
+import example.bankdata.database.account.services.AccountDbService
 import example.bankdata.feature.money.repository.models.*
 import example.bankdata.models.account.*
 import example.bankdata.models.account.bll.*
 import example.bankdata.models.account.domain.*
 import example.bankdata.models.currency.domain.*
 import jakarta.enterprise.context.*
-import jakarta.transaction.Transactional
+import jakarta.transaction.*
 import kotlin.random.*
 
 @ApplicationScoped
 class MoneyRepository(
-    private val dbService: InMemoryDbService
+    private val dbService: AccountDbService
 ) {
 
     private val random: Random by lazy { Random(42) }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     fun deposit(toAccount: AccountNumber, withMoney: DkkCurrencyDomain): Result<AccountDomain> {
-        val account: AccountDomain? = dbService.get(toAccount)
+        val account: AccountDomain? = dbService.getDomain(toAccount)
         if (account == null) {
             return Result.failure(IllegalArgumentException("Account not found: $toAccount"))
         }
@@ -32,7 +33,7 @@ class MoneyRepository(
     }
 
     fun getBalance(accountNumber: AccountNumber): Result<DkkCurrencyDomain> {
-        val account: AccountDomain? = dbService.get(accountNumber)
+        val account: AccountDomain? = dbService.getDomain(accountNumber)
         if (account == null) {
             return Result.failure(IllegalArgumentException("Account not found: $accountNumber"))
         }
@@ -46,8 +47,8 @@ class MoneyRepository(
         to: AccountNumber,
         transferAmount: DkkCurrencyDomain
     ): MoneyRepositoryTransferResult {
-        val fromAccount: AccountDomain = dbService.get(from) ?: return MoneyRepositoryTransferResult.SenderNotFound
-        val toAccount: AccountDomain = dbService.get(to) ?: return MoneyRepositoryTransferResult.RecipientNotFound
+        val fromAccount: AccountDomain = dbService.getDomain(from) ?: return MoneyRepositoryTransferResult.SenderNotFound
+        val toAccount: AccountDomain = dbService.getDomain(to) ?: return MoneyRepositoryTransferResult.RecipientNotFound
 
         if (fromAccount == toAccount) {
             return MoneyRepositoryTransferResult.SameAccountError

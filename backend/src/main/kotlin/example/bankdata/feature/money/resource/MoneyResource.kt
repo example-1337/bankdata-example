@@ -3,7 +3,7 @@ package example.bankdata.feature.money.resource
 import example.bankdata.feature.money.bll.*
 import example.bankdata.feature.money.models.*
 import example.bankdata.feature.money.repository.*
-import example.bankdata.feature.money.repository.models.MoneyRepositoryTransferResult
+import example.bankdata.feature.money.repository.models.*
 import example.bankdata.models.account.*
 import example.bankdata.models.account.domain.*
 import example.bankdata.models.currency.bll.*

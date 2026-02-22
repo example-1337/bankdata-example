@@ -8,16 +8,22 @@ group = "example.bankdata"
 version = "1.0.0-SNAPSHOT"
 
 dependencies {
-    implementation("io.quarkus:quarkus-container-image-docker")
     implementation(enforcedPlatform(libs.quarkus.platform.bom))
     implementation(libs.bundles.quarkus.kotlin)
+
+    implementation(libs.bundles.quarkus.hibernate)
+    implementation(libs.quarkus.postgresql)
 
     implementation(libs.bundles.kotlin)
     implementation(libs.kotlin.serialization.json)
 
+    implementation(libs.quarkus.docker.image)
+
     implementation(project(":shared:utils"))
     implementation(project(":shared:models"))
     implementation(project(":external-services"))
+
+
 
     testImplementation(libs.bundles.kotlin.test)
     testImplementation(libs.bundles.quarkus.test)

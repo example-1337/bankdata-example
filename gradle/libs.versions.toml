@@ -29,6 +29,13 @@ quarkus-kotlin = { group = "io.quarkus", name = "quarkus-kotlin" }
 quarkus-rest-kotlin-serialization = { group = "io.quarkus", name = "quarkus-rest-kotlin-serialization" }
 quarkus-rest-client-kotlin-serialization = { group = "io.quarkus", name = "quarkus-rest-client-kotlin-serialization" }
 
+
+quarkus-postgresql = { group = "io.quarkus", name = "quarkus-jdbc-postgresql" }
+quarkus-hibernate-validator = { group = "io.quarkus", name = "quarkus-hibernate-validator" }
+quarkus-hibernate-orm-panache-kotlin = { group = "io.quarkus", name = "quarkus-hibernate-orm-panache-kotlin" }
+
+quarkus-docker-image = { group = "io.quarkus", name = "quarkus-container-image-docker" }
+
 quarkus-junit5 = { group = "io.quarkus", name = "quarkus-junit5" }
 rest-assured = { group = "io.rest-assured", name = "rest-assured" }
 
@@ -63,6 +70,11 @@ quarkus-kotlin = [
     "quarkus-rest",
     "quarkus-rest-kotlin-serialization",
     "quarkus-rest-client-kotlin-serialization"
+]
+
+quarkus-hibernate = [
+    "quarkus-hibernate-validator",
+    "quarkus-hibernate-orm-panache-kotlin"
 ]
 
 quarkus-test = [

@@ -1,10 +1,9 @@
 package example.bankdata.frontend.network
 
-import example.bankdata.frontend.utils.fetchPostJson
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
-import web.http.Response
-import web.http.text
+import example.bankdata.frontend.utils.*
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+import web.http.*
 
 object CurrencyClient {
 

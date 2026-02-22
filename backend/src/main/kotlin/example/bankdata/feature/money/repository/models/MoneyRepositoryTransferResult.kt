@@ -1,6 +1,6 @@
 package example.bankdata.feature.money.repository.models
 
-import kotlinx.serialization.Serializable
+import kotlinx.serialization.*
 
 @Serializable
 sealed interface MoneyRepositoryTransferResult {

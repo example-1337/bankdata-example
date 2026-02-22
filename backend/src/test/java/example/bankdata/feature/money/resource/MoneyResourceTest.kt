@@ -15,32 +15,32 @@ class MoneyResourceTest {
 
     @Test
     fun canGetBalance() {
-        val account: AccountNumber = setupNewAccount(startingBalance = "42")
+        val account: AccountNumber = setupNewAccount(startingBalance = "42.00")
 
         val response: ValidatableResponse = callGetBalance(account)
         response
             .statusCode(200)
-            .body(amountIs("42"))
+            .body(amountIs("42.00"))
     }
 
     @Test
     fun canDeposit() {
         val account: AccountNumber = setupNewAccount(startingBalance = "0")
         given()
-            .json("{\"to\": \"${account.raw}\",\"money\": {\"amount\": \"9000\"}}")
+            .json("{\"to\": \"${account.raw}\",\"money\": {\"amount\": \"9000.00\"}}")
             .postThen("/money/deposit")
             .statusCode(200)
 
         val balanceResponse: ValidatableResponse = callGetBalance(account)
         balanceResponse
             .statusCode(200)
-            .body(amountIs("9000"))
+            .body(amountIs("9000.00"))
     }
 
     @Test
     fun canTransfer() {
-        val fromAccount: AccountNumber = setupNewAccount(startingBalance = "100")
-        val toAccount: AccountNumber = setupNewAccount(startingBalance = "0")
+        val fromAccount: AccountNumber = setupNewAccount(startingBalance = "100.00")
+        val toAccount: AccountNumber = setupNewAccount(startingBalance = "0.00")
 
         given()
             .json("{\"from\": \"${fromAccount.raw}\",\"to\": \"${toAccount.raw}\",\"money\": {\"amount\": \"100\"}}")
@@ -50,11 +50,11 @@ class MoneyResourceTest {
 
         callGetBalance(fromAccount)
             .statusCode(200)
-            .body(amountIs("0"))
+            .body(amountIs("0.00"))
 
         callGetBalance(toAccount)
             .statusCode(200)
-            .body(amountIs("100"))
+            .body(amountIs("100.00"))
     }
 
     private fun callGetBalance(accountNumber: AccountNumber): ValidatableResponse {
