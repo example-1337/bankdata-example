@@ -1,3 +1,5 @@
+import java.util.Locale
+
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
@@ -8,6 +10,7 @@ group = "example.bankdata"
 version = "1.0.0-SNAPSHOT"
 
 dependencies {
+    implementation("io.quarkus:quarkus-container-image-docker")
     implementation(enforcedPlatform(libs.quarkus.platform.bom))
     implementation(libs.bundles.quarkus.kotlin)
 
@@ -51,4 +54,29 @@ tasks.register<Test>("integrationTest") {
 
 kotlin {
     jvmToolchain(25)
+}
+
+tasks.register<Exec>("buildNativeAotDocker") {
+    group = "build"
+
+    val isWindows: Boolean = System.getProperty("os.name").contains("win", ignoreCase = true)
+    val wrapper: String = if (isWindows) {
+        "gradlew.bat"
+    } else {
+        "./gradlew"
+    }
+    executable = wrapper
+    args = listOf(
+        "build",
+        "-Dquarkus.native.enabled=true",
+        "-Dquarkus.package.jar.enabled=false",
+        "-Dquarkus.container-image.build=true",
+        "-Dquarkus.native.additional-build-args=--initialize-at-run-time=kotlin.uuid.SecureRandomHolder",
+    )
+
+    workingDir = project.rootDir
+
+    isIgnoreExitValue = false
+    standardOutput = System.out
+    errorOutput = System.err
 }

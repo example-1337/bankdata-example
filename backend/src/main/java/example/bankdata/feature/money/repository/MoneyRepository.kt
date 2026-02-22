@@ -15,7 +15,7 @@ class MoneyRepository(
     private val dbService: InMemoryDbService
 ) {
 
-    private val random: Random = Random(42)
+    private val random: Random by lazy { Random(42) }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     fun deposit(toAccount: AccountNumber, withMoney: DkkCurrencyDomain): Result<AccountDomain> {
