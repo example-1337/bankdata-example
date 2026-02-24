@@ -1,7 +1,7 @@
 package example.bankdata.database.account.repository
 
-import example.bankdata.database.account.models.AccountDb
-import example.bankdata.models.account.AccountNumber
+import example.bankdata.database.account.models.*
+import example.bankdata.models.account.*
 import io.quarkus.hibernate.orm.panache.kotlin.*
 import jakarta.enterprise.context.*
 

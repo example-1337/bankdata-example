@@ -3,6 +3,7 @@ package example.bankdata.services.eurofxref.models.dto
 import example.bankdata.models.general.*
 import jakarta.xml.bind.annotation.*
 import kotlinx.serialization.*
+import example.bankdata.models.general.BigDecimalAsString
 import nl.adaptivity.xmlutil.serialization.*
 import nl.adaptivity.xmlutil.serialization.XmlElement
 

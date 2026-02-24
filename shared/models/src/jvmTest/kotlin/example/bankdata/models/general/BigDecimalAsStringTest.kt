@@ -1,4 +1,4 @@
-package example.bankdata.models.general
+package models.general
 
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.*

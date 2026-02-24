@@ -7,6 +7,9 @@ import example.bankdata.models.account.*
 import example.bankdata.models.account.bll.*
 import example.bankdata.models.account.domain.*
 import jakarta.enterprise.context.*
+import example.bankdata.models.account.AccountNumber
+import example.bankdata.models.account.bll.newFromUuid
+import example.bankdata.models.account.domain.AccountDomain
 
 @ApplicationScoped
 class AccountRepository(

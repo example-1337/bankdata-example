@@ -1,6 +1,7 @@
 package example.bankdata.models.account
 
 import kotlinx.serialization.*
+import kotlin.jvm.*
 
 @Serializable
 @JvmInline

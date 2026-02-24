@@ -1,6 +1,7 @@
 package example.bankdata.frontend
 
 import example.bankdata.frontend.network.*
+import example.bankdata.models.account.AccountNumber
 import kotlinx.coroutines.*
 import react.*
 import react.dom.events.*
@@ -14,6 +15,7 @@ import web.cssom.*
 import web.html.*
 
 val mainScope: CoroutineScope = MainScope()
+val exampleModelFromShared = AccountNumber("test")
 
 val App: FC<Props> = FC {
 
@@ -31,6 +33,10 @@ val App: FC<Props> = FC {
     }
     ConvertComponent {
 
+    }
+
+    p{
+        +"${exampleModelFromShared}"
     }
 }
 

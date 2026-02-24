@@ -5,6 +5,7 @@ import example.bankdata.testHelpers.*
 import io.quarkus.test.junit.*
 import io.restassured.RestAssured.*
 import io.restassured.response.*
+import example.bankdata.models.account.AccountNumber
 import org.hamcrest.*
 import org.hamcrest.Matchers.*
 import org.junit.jupiter.api.*

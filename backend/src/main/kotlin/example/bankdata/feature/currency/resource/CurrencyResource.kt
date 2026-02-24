@@ -5,6 +5,7 @@ import example.bankdata.feature.currency.models.*
 import example.bankdata.feature.currency.repository.*
 import example.bankdata.models.general.*
 import jakarta.ws.rs.*
+import example.bankdata.models.general.BigDecimalAsString
 import java.math.*
 
 @Path("/currency")

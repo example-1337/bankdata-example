@@ -1,12 +1,9 @@
 package example.bankdata.database.account.bll
 
-import example.bankdata.database.account.models.AccountDb
-import example.bankdata.database.account.models.BalanceDb
-import example.bankdata.database.account.models.UserInfoDb
-import example.bankdata.models.account.AccountNumber
-import example.bankdata.models.account.domain.AccountDomain
-import example.bankdata.models.account.domain.AccountUserDomain
-import example.bankdata.models.currency.domain.DkkCurrencyDomain
+import example.bankdata.database.account.models.*
+import example.bankdata.models.account.*
+import example.bankdata.models.account.domain.*
+import example.bankdata.models.currency.domain.*
 
 fun AccountDb.updateFrom(updated: AccountDomain) {
     accountNumber = updated.accountNumber.raw

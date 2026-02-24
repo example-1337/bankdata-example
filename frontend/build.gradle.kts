@@ -27,6 +27,8 @@ kotlin {
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react")
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom")
 
+                implementation(project(":shared:models"))
+
                 //https://github.com/JetBrains/kotlin-wrappers/blob/master/gradle.properties
                 api(npm("react", "19.2.4"))
                 api(npm("react-dom", "19.2.4"))

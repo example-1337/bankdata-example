@@ -1,7 +1,6 @@
 package example.bankdata.feature.money.repository
 
-import example.bankdata.database.*
-import example.bankdata.database.account.services.AccountDbService
+import example.bankdata.database.account.services.*
 import example.bankdata.feature.money.repository.models.*
 import example.bankdata.models.account.*
 import example.bankdata.models.account.bll.*
@@ -9,6 +8,11 @@ import example.bankdata.models.account.domain.*
 import example.bankdata.models.currency.domain.*
 import jakarta.enterprise.context.*
 import jakarta.transaction.*
+import example.bankdata.models.account.AccountNumber
+import models.account.bll.deposit
+import example.bankdata.models.account.bll.isBalanceLessThan
+import example.bankdata.models.account.bll.withdraw
+import example.bankdata.models.account.domain.AccountDomain
 import kotlin.random.*
 
 @ApplicationScoped
@@ -47,7 +51,8 @@ class MoneyRepository(
         to: AccountNumber,
         transferAmount: DkkCurrencyDomain
     ): MoneyRepositoryTransferResult {
-        val fromAccount: AccountDomain = dbService.getDomain(from) ?: return MoneyRepositoryTransferResult.SenderNotFound
+        val fromAccount: AccountDomain =
+            dbService.getDomain(from) ?: return MoneyRepositoryTransferResult.SenderNotFound
         val toAccount: AccountDomain = dbService.getDomain(to) ?: return MoneyRepositoryTransferResult.RecipientNotFound
 
         if (fromAccount == toAccount) {

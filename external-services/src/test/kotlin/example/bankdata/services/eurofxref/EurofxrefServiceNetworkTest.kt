@@ -5,6 +5,7 @@ import example.bankdata.services.eurofxref.api.*
 import example.bankdata.services.eurofxref.models.domain.currencies.*
 import example.bankdata.testhelpers.collections.*
 import io.smallrye.mutiny.*
+import example.bankdata.models.general.toBigDecimalAsString
 import org.intellij.lang.annotations.*
 import org.junit.jupiter.api.Test
 import kotlin.test.*

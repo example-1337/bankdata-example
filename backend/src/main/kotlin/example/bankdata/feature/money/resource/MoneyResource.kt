@@ -9,6 +9,9 @@ import example.bankdata.models.account.domain.*
 import example.bankdata.models.currency.bll.*
 import example.bankdata.models.currency.domain.*
 import jakarta.ws.rs.*
+import example.bankdata.models.account.AccountNumber
+import example.bankdata.models.account.domain.AccountDomain
+import example.bankdata.models.currency.bll.toDomain
 
 @Path("/money")
 class MoneyResource(

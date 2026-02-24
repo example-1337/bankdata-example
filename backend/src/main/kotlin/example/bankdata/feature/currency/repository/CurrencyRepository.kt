@@ -6,6 +6,7 @@ import example.bankdata.services.eurofxref.models.domain.currencies.*
 import example.bankdata.services.eurofxref.models.domain.currencies.operations.*
 import example.bankdata.utils.kotlin.result.*
 import jakarta.enterprise.context.*
+import example.bankdata.models.general.BigDecimalAsString
 import java.math.*
 
 @ApplicationScoped

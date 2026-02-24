@@ -1,4 +1,4 @@
-package example.bankdata.models.account.bll
+package models.account.bll
 
 import example.bankdata.models.account.*
 import example.bankdata.models.account.domain.*

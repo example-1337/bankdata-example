@@ -5,6 +5,10 @@ import example.bankdata.models.account.*
 import example.bankdata.models.account.domain.*
 import example.bankdata.models.currency.dto.*
 import example.bankdata.models.general.*
+import example.bankdata.models.account.AccountNumber
+import example.bankdata.models.account.domain.AccountDomain
+import example.bankdata.models.currency.dto.DkkCurrencyDto
+import example.bankdata.models.general.toBigDecimalAsString
 import org.junit.jupiter.api.Test
 import kotlin.test.*
 
